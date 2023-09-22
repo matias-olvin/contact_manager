@@ -1,6 +1,7 @@
-from manager import Manager
 from pymongo import ASCENDING, MongoClient
 from pymongo.errors import DuplicateKeyError
+
+from manager import Manager
 
 
 class ContactManager(Manager):
@@ -35,7 +36,6 @@ class ContactManager(Manager):
             print(item)
 
         client.close()
-
 
     def _add_contact_to_db(self, storage_item: dict):
         name = storage_item["name"]
