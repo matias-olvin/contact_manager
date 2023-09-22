@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "contact-manager-ting"
+version = "0.1.0"
+description = "creating a python contact manager to practise OOP"
+authors = ["matias-olvin <matias@olvin.com>"]
+readme = "README.md"
+packages = [{include = "contact_manager_ting"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pendulum = "^2.1.2"
+black = "^23.9.1"
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+pymongo = "^4.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
