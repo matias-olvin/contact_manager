@@ -7,7 +7,7 @@ from manager import Manager
 class ContactManager(Manager):
     def __init__(self, list_name: str) -> None:
         self.list_name = list_name
-        self.document_name = f"{list_name}_storage"
+        self.document_name = f"{list_name.strip().lower().replace(' ', '_')}_storage"
         self.db_name = "contacts"
 
         client = MongoClient(host="localhost", port=27017)
