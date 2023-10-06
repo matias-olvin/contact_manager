@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
+from contact_manager import ContactManager
+
+cm = ContactManager(list_name="tk layout")
 
 def add_contact():
     name = name_entry.get()
     email = email_entry.get()
-    contact = contact_entry.get()
-    optional_args = optional_args_entry.get()
+    phone_number = contact_entry.get()
 
     # You can add code here to save the contact data to a database or list
 
@@ -15,6 +17,8 @@ def add_contact():
     contact_entry.delete(0, tk.END)
     optional_args_entry.delete(0, tk.END)
 
+    cm.add_contact(name=name, phone_number=phone_number, email=email)
+
 def clear_fields():
     name_entry.delete(0, tk.END)
     email_entry.delete(0, tk.END)
@@ -23,7 +27,7 @@ def clear_fields():
 
 # Create the main window
 root = tk.Tk()
-root.title("Contacts Manager")
+root.title("My Contacts")
 
 # Create and pack a frame for inputs
 input_frame = ttk.Frame(root, padding=10)
@@ -57,9 +61,6 @@ optional_args_entry.grid(column=1, row=3, sticky=(tk.W, tk.E))
 # Create buttons for adding and clearing entries
 add_button = ttk.Button(input_frame, text="Add Contact", command=add_contact)
 add_button.grid(column=0, row=4, columnspan=2)
-
-clear_button = ttk.Button(input_frame, text="Clear Fields", command=clear_fields)
-clear_button.grid(column=0, row=5, columnspan=2)
 
 # Start the application
 root.mainloop()
